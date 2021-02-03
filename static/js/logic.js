@@ -1,5 +1,5 @@
 
-let mymap = L.map('map').setView([51.505, -0.09], 13);
+let map = L.map('map').setView([51.505, -0.09], 13);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -8,7 +8,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     tileSize: 512,
     zoomOffset: -1,
     accessToken: API_KEY
-}).addTo(mymap);
+}).addTo(map);
 
 // Read data from USGS web site.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(geodata => {
@@ -48,11 +48,23 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
             return L.circleMarker(coords);
         },
         style: getStyle
-    }).addTo(mymap);
+    }).addTo(map);
+
+    // Add legend to map.
+    let legend = L.control({ position: 'bottomright' });
+
+    legend.onAdd = function() {
+
+        let div = L.DomUtil.create('div', 'legend');
+        let magnitudes = [0, 1, 2, 3, 4, 5];
+
+        div.innerHTML += "<i style='background:" + getColor(4) + ";padding-left:1em'></i>"
+
+        return div;
+
+    };
 
     
-    
-    
+    legend.addTo(map);
 
-
-});
+}); // END d3.json read.
