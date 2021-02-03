@@ -1,0 +1,23 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#map,
+body,
+html {
+  height: 100%;
+}
+
+.legend {
+  background-color: darkolivegreen;
+  padding: 1em;  
+  border-radius: 10px;
+  opacity: 0.8;
+  color: azure;
+}
+
+i {  
+  margin-right: 5px;
+  padding-left: 1em;
+}
