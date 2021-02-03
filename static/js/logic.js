@@ -47,7 +47,11 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         pointToLayer: function(geoPoint, coords) {
             return L.circleMarker(coords);
         },
-        style: getStyle
+        style: getStyle,
+        onEachFeature: function(ft, layer) {
+            layer.bindPopup("<b>Location: </b>" + ft.properties.place + 
+                            "<br><b>Magnitude: </b>" + ft.properties.mag)
+        }
     }).addTo(map);
 
     // Add legend to map.
