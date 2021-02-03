@@ -58,7 +58,11 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         let div = L.DomUtil.create('div', 'legend');
         let magnitudes = [0, 1, 2, 3, 4, 5];
 
-        div.innerHTML += "<i style='background:" + getColor(4) + ";padding-left:1em'></i>"
+        for (let i=0; i < magnitudes.length; i++) {
+            div.innerHTML += "<i style='background:" + getColor(4) + "'></i>" + "<br>"
+        }
+
+        
 
         return div;
 
