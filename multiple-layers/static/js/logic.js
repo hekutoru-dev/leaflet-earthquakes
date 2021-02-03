@@ -102,7 +102,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
             layer.bindPopup("<b>Location: </b>" + ft.properties.place + 
                             "<br><b>Magnitude: </b>" + ft.properties.mag)
         }
-    }).addTo(earthquakes);
+    }).addTo(earthquakes);   // END L.geoJSON()  
 
     // Add legend to map.
     let legend = L.control({ position: 'bottomright' });
@@ -119,5 +119,13 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         return div;
     };    
     legend.addTo(map);
+
+    // Make a call to the geoJSON data of the tectonicplates.
+    d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(platesData => {
+        
+        L.geoJSON(platesData, {
+            color: "purple"
+        }).addTo(plates); // END L.geoJSON()
+    });
 
 }); // END d3.json read.
