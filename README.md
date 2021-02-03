@@ -9,7 +9,7 @@ The USGS provides earthquake data in a number of different formats, updated ever
 
 1. **Visualizing the Data**
 
-Using Leaflet a mpa is created to plots all of the earthquakes from the pulled data set based on their longitude and latitude.
+Using Leaflet a map is created to plots all of the earthquakes from the pulled data set based on their longitude and latitude.
 
    * Markers reflect the magnitude of the earthquake in their size and color. Earthquakes with higher magnitudes should appear larger and darker in color.
 
