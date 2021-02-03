@@ -1,4 +1,4 @@
-Seismic Activity with Leaflet
+# Seismic Activity with Leaflet
 Visualization of recent earthquakes using Leaflet
 
 
