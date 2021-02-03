@@ -16,7 +16,7 @@ Using Leaflet a map is created to plots all of the earthquakes from the pulled d
 
    * A legend is also created to provide context for the map data.
 
-To read the GeoJSON data the [Leaflet GeoJSON] (https://leafletjs.com/reference-1.7.1.html#geojson) reference will be very helpful.
+To read the GeoJSON data the [Leaflet GeoJSON](https://leafletjs.com/reference-1.7.1.html#geojson) reference will be very helpful.
 
 
 ### Level 2: Multiple Layer Data: Tectonic Plates
@@ -28,4 +28,4 @@ Two data sets are plotted on the map to illustrate the relationship between tect
 
 * Layer controls are also included in the map.
 
-To group several layers into one, and how to use the layers control to allow users to easily switch different layers on your map, it may be helpful to follow the suggestions in [Leaflet Layer Groups] (https://leafletjs.com/examples/layers-control/)
+To group several layers into one, and how to use the layers control to allow users to easily switch different layers on your map, it may be helpful to follow the suggestions in [Leaflet Layer Groups](https://leafletjs.com/examples/layers-control/)
