@@ -10,9 +10,13 @@ html {
 }
 
 .legend {
-  opacity: 0.7
+  background-color: darkolivegreen;
+  padding: 1em;
+  border-radius: 10px;
+  opacity: 0.7;
+  color: azure;
 }
 
-i {
+i {  
   padding-left: 1em;
 }
