@@ -11,12 +11,13 @@ html {
 
 .legend {
   background-color: darkolivegreen;
-  padding: 1em;
+  padding: 1em;  
   border-radius: 10px;
   opacity: 0.8;
   color: azure;
 }
 
 i {  
+  margin-right: 5px;
   padding-left: 1em;
 }
