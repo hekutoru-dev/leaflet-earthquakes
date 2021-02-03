@@ -1,14 +1,40 @@
 
 let map = L.map('map').setView([51.505, -0.09], 13);
 
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+let mapboxUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}'
+
+L.tileLayer(mapboxUrl, {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 10,
+    maxZoom: 8,    
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
     accessToken: API_KEY
 }).addTo(map);
+
+let lightmap = L.tileLayer(mapboxUrl, {
+    maxZoom: 8,
+    id: 'mapbox/light-v10',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: API_KEY    
+})
+
+let darkmap = L.tileLayer(mapboxUrl, {
+    maxZoom: 8,
+    id: 'mapbox/satellite-v9',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: API_KEY    
+})
+
+let satmap = L.tileLayer(mapboxUrl, {
+    maxZoom: 8,
+    id: 'mapbox/dark-v10',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: API_KEY    
+})
 
 // Read data from USGS web site.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(geodata => {
