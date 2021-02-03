@@ -3,6 +3,7 @@ let map = L.map('map').setView([51.505, -0.09], 13);
 
 let mapboxUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}'
 
+//let streetsmap =
 L.tileLayer(mapboxUrl, {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 8,    
@@ -22,7 +23,7 @@ let lightmap = L.tileLayer(mapboxUrl, {
 
 let darkmap = L.tileLayer(mapboxUrl, {
     maxZoom: 8,
-    id: 'mapbox/satellite-v9',
+    id: 'mapbox/dark-v10',
     tileSize: 512,
     zoomOffset: -1,
     accessToken: API_KEY    
@@ -30,11 +31,36 @@ let darkmap = L.tileLayer(mapboxUrl, {
 
 let satmap = L.tileLayer(mapboxUrl, {
     maxZoom: 8,
-    id: 'mapbox/dark-v10',
+    id: 'mapbox/satellite-v9',
     tileSize: 512,
     zoomOffset: -1,
     accessToken: API_KEY    
 })
+
+// Create the 2 layers for the 2 datasets: earthquakes and plates.
+let earthquakes = new L.LayerGroup();
+let plates = new L.LayerGroup();
+
+// Define our map choices.
+let baseMaps = {
+    //"Streets": streetsmap,
+    "Light": lightmap,
+    "Dark": darkmap,
+    "Satellite": satmap
+}
+
+// Define layer choices.
+let overlays = {
+    "Earthquakes": earthquakes,
+    "Tectonic Plates": plates
+}
+
+// Add the control.
+L.control.layers(baseMaps, overlays).addTo(map);
+
+
+
+
 
 // Read data from USGS web site.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(geodata => {
