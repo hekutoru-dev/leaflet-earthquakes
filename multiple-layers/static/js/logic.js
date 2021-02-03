@@ -1,4 +1,5 @@
 
+// Initial setup for the map.
 let map = L.map('map').setView([51.505, -0.09], 13);
 
 let mapboxUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}';
@@ -112,6 +113,8 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         let div = L.DomUtil.create('div', 'legend');
         let magnitudes = [0, 1, 2, 3, 4, 5];
 
+        // Loop through magnitudes array and add to legend.
+        // The squared color is given using CSS style on <i> tag.
         for (let i=0; i < magnitudes.length; i++) {
             div.innerHTML += "<i style='background:" + getColor(magnitudes[i]) + "'></i>" + 
                 magnitudes[i] + (magnitudes[i+1] ? ' &ndash; ' + magnitudes[i+1] + "<br>" : " + ");
